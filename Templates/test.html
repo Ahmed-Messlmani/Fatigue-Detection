@@ -1,0 +1,104 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webcamjs/1.0.25/webcam.js"></script></head>
+<body>
+<div class="container">
+  <div class="jumbotron" style="background-color:#1daeff !important;">
+    <h2 style="color:#fff;">Fatigue Classifier</h2>      
+    <p style="color:#fff;">Fatigue detection using machine learning</p>
+  </div>
+  <p>Machine learning App.</p>           
+</div>
+
+
+<div class="panel-group">
+    <div class="panel panel-primary">
+      <div class="panel-heading" style="background-color:#1563ff ">Fatigue Classifier</div>
+            
+<!-- Main Input For Receiving Query to our ML -->	
+      	<form  id="myform" action="{{ url_for('predict')}}" method="POST" enctype="multipart/form-data">
+			    <label for="avatar">take a picture with the webcam:</label>
+          <div id="camera" style="height:auto;width:auto; text-align:left;"></div>
+          <div id="my_result"></div>
+          <input type="button" value="Take a Picture" id="btPic" onclick="takeSnapShot()"  /> 
+          <input type="text"/>
+          <input type="text"/>
+          <input type="button" value="Upload" onclick="upload()">
+			    <button type="submit" class="btn btn-primary">Predict</button>
+      </form>
+
+			<script>
+      
+			Webcam.set({
+        width: 220,
+        height: 190,
+        image_format: 'jpeg',
+        flip_horiz: true,
+        jpeg_quality: 100
+    });
+    Webcam.attach('#camera');
+
+    // TAKE A SNAPSHOT.
+    takeSnapShot = function () {
+        Webcam.snap(function (data_uri) {
+            document.getElementById('my_result').innerHTML = '<img id="image" src="'+data_uri+'"/>';
+            //var raw_image_data = data_uri.replace(/^data\:image\/\w+\;base64\,/, '');
+            //document.getElementById('mydata').value = raw_image_data;
+            //document.getElementById('myform').submit();
+            //downloadImage('ahmed', data_uri);
+        });
+    }
+    upload = function () {
+    
+    var image = document.getElementById('image').src;
+    var form = document.getElementById('myForm');
+    var formData = new FormData(document.forms.form);
+    formData.append("file", image);
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open("POST", "/predict",true);
+
+    // check when state changes, 
+    
+        //xmlhttp.send("file=" + document.getElementById('image').value);
+    xmlhttp.setRequestHeader('content-type', 'application/x-www-form-urlencoded;charset=UTF-8');
+    xmlhttp.send(formData);
+    alert("testowet");
+
+    console.log(formData.get('file'));
+    
+   }
+
+    // DOWNLOAD THE IMAGE.
+    downloadImage = function (name, datauri) {
+        var a = document.createElement('a');
+        a.setAttribute('download', name + '.jpg');
+        a.setAttribute('href', datauri);
+        a.click();
+    }
+			</script>
+
+
+
+
+			
+
+<!-- Main Input For Receiving Query to our ML --> 
+
+
+      
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+{% endblock %}
+
+{% block styles %}
+{{super()}} <!-- Allows Javascripts and other styles to be inclusive in bootstrap -->
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='css/styles.css')}}">
+{% endblock %}

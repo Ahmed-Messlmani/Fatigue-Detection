@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <style>
+        html * {
+            font-family: Arial;
+        }
+
+        body {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            align-content: center;
+            width: 50%;
+        }
+
+
+        table,
+        td,
+        th {
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        input#bar {
+            border: none;
+            padding: 10px;
+            margin: 10px;
+            height: 50px;
+            width: 500px;
+            border: 1px solid #eaeaea;
+            outline: none;
+        }
+
+        input:hover {
+            border-color: #a0a0a0 #b9b9b9 #b9b9b9 #b9b9b9;
+        }
+
+        input:focus {
+            border-color: #4d90fe;
+        }
+
+        input[type="submit"] {
+            border-radius: 10px;
+            background: #4889a7;
+            border: 1px solid #f2f2f2;
+            color: #ffffff;
+            cursor: default;
+            font-size: 14px;
+            font-weight: bold;
+            width: 200px;
+            padding: 0 16px;
+            height: 50px;
+        }
+
+        input[type="submit"]:hover {
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            background: #f8f8f8;
+            border: 1px solid #c6c6c6;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            color: #222;
+        }
+        input[type="button"] {
+            border-radius: 10px;
+            background: #4889a7;
+            border: 1px solid #f2f2f2;
+            color: #ffffff;
+            cursor: default;
+            font-size: 14px;
+            font-weight: bold;
+            width: 200px;
+            padding: 0 16px;
+            height: 50px;
+        }
+
+        input[type="button"]:hover {
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            background: #f8f8f8;
+            border: 1px solid #c6c6c6;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            color: #222;
+        }
+        input[type="text"] {
+            font-size: 1em;
+        }
+
+        .column {
+            align-content: center;
+            float: left;
+            width: 50%;
+            height: 100%;
+        }
+
+        .column_home {
+            align-content: center;
+            float: left;
+            width: 33%;
+            height: 100%;
+        }
+
+
+        .center_text {
+            align-content: center;
+            width: 50%;
+            vertical-align: middle;
+            text-align: justify;
+            text-align-last: center;
+        }
+
+        #left-col {
+            align-content: center;
+            text-align: center;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        #right-col {
+            align-content: center;
+            text-align: center;
+        }
+
+        /* The alert message box */
+        .Won {
+            padding: 20px;
+            background-color: #7cc958;
+            /* Green */
+            color: white;
+            width: 500px;
+            margin: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .Lost {
+            padding: 20px;
+            background-color: #db6d6d;
+            /* Green */
+            color: white;
+            width: 500px;
+            margin: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* The close button */
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* When moving the mouse over the close button */
+        .closebtn:hover {
+            color: black;
+        }
+
+        ul {
+            padding: 20px;
+            /*list-style-position: inside;*/
+            /*list-style-type: none;*/
+        }
+
+        
+    
+
+    </style>
+   
+    <title>webcam streaming</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+    <a href="/">
+      <img src = "\static\images\webcamstreaming.png" width="100%">
+    </a>
+
+ {% block body %}
+
+<br>
+<blockquote>
+  <p class="quotation">Try the Real-time fatigue detection with the webcam streaming </p>
+</blockquote> 
+
+<br>
+
+	
+
+
+
+<br>
+
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+      <div class="Won">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+
+<img src="{{ url_for('video_feed') }}">
+
+
+{% endblock %}
+
+<br>
+<form action="{{ url_for('video_feed1') }}" method="post">
+
+  <input type="submit" name="video_1" value="Stop video"> 
+</form>
+
+<br>
+<form>
+    <input type="button" value="Back" onclick="history.go(-1)">
+  </form>
+  
+  </body>
+</html>
+
+<script>
+</script>

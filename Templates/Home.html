@@ -1,0 +1,292 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        html * {
+            font-family: Arial;
+        }
+
+        body {
+            text-align: center;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        table {
+            border-collapse: collapse;
+            align-content: center;
+            width: 50%;
+        }
+
+
+        table,
+        td,
+        th {
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        input#bar {
+            border: none;
+            padding: 10px;
+            margin: 10px;
+            height: 50px;
+            width: 500px;
+            border: 1px solid #eaeaea;
+            outline: none;
+        }
+
+        input:hover {
+            border-color: #a0a0a0 #b9b9b9 #b9b9b9 #b9b9b9;
+        }
+
+        input:focus {
+            border-color: #4d90fe;
+        }
+
+        input[type="submit"] {
+            border-radius: 10px;
+            background: #4889a7;
+            border: 1px solid #f2f2f2;
+            color: #ffffff;
+            cursor: default;
+            font-size: 14px;
+            font-weight: bold;
+            width: 200px;
+            padding: 0 16px;
+            height: 50px;
+        }
+
+        input[type="submit"]:hover {
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            background: #f8f8f8;
+            border: 1px solid #c6c6c6;
+            box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
+            color: #222;
+        }
+
+        input[type="text"] {
+            font-size: 1em;
+        }
+
+        .column {
+            align-content: center;
+            float: left;
+            width: 50%;
+            height: 100%;
+        }
+
+        .column_home {
+            align-content: center;
+            float: left;
+            width: 33%;
+            height: 100%;
+        }
+
+
+        .center_text {
+            align-content: center;
+            width: 50%;
+            vertical-align: middle;
+            text-align: justify;
+            text-align-last: center;
+        }
+
+        #left-col {
+            align-content: center;
+            text-align: center;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        #right-col {
+            align-content: center;
+            text-align: center;
+        }
+
+        /* The alert message box */
+        .Won {
+            padding: 20px;
+            background-color: #7cc958;
+            /* Green */
+            color: white;
+            width: 500px;
+            margin: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        .Lost {
+            padding: 20px;
+            background-color: #db6d6d;
+            /* Green */
+            color: white;
+            width: 500px;
+            margin: auto;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+
+        /* The close button */
+        .closebtn {
+            margin-left: 15px;
+            color: white;
+            font-weight: bold;
+            float: right;
+            font-size: 22px;
+            line-height: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        /* When moving the mouse over the close button */
+        .closebtn:hover {
+            color: black;
+        }
+
+        ul {
+            padding: 20px;
+            /*list-style-position: inside;*/
+            /*list-style-type: none;*/
+        }
+
+        
+    
+
+    </style>
+</head>
+
+<body>
+    <a href="/">
+        <img src="\static\images\head.png" width="100%">
+    </a>
+    <br>
+
+
+
+    <!--
+  Video Interview presentation
+  -->
+    <div class="row">
+        <div class="column_home" id="left-col" align="center">
+            <img src="\static\images\localimageicon.png"width="100%">
+            <div style="width:70%; text-align:justify; align-content:center; display:inline-block;">
+                <p> Fatigue detection could help improve everyone's productivity and efficiency. So we create this method "upload picture from your device" for detecting if the human in the picture chosen fatigue ou no. </p>
+                <br>
+                <p> fatigue can affect individuals in the :
+                <ul>
+                    <li>professional environment</li>
+                    <li>university environment</li>
+                    <li>school environment</li>
+                    
+                </ul>
+                <br>
+                <br>
+            </div>
+        </div>
+
+        <!--
+      Audio Interview presentation
+      -->
+        <div class="column_home" id="left-col" align="center">
+            <img src="\static\images\webcam%20image%20icon.png" width="100%">
+            <div style="width:70%; text-align:justify; align-content:center; display:inline-block;">
+                <p> Fatigue detection could help improve everyone's productivity and efficiency. So we create this method "take a picture with your webcam" which processes the image captured by the webcamera and returns fatigue or not fatigue as a result.</p>
+                <br>
+                <p> fatigue can affect individuals in the :
+                <ul>
+                    <li>professional environment</li>
+                    <li>university environment</li>
+                    <li>school environment</li>
+                </ul>
+                <br>
+                <br>
+            </div>
+        </div>
+
+        <!--
+      Text Interview presentation
+      -->
+        <div class="column_home" id="left-col" align="center">
+            <img src="\static\images\iconstreaming.png" width="100%">
+            <div style="width:70%; text-align:justify; align-content:center; display:inline-block;">
+                <p> Fatigue detection could help improve everyone's productivity and efficiency. So we create this method "webcam streaming" which can take each frame from the video and process it and display the result on the video .</p>
+                <br>
+                <p> fatigue can affect individuals in the :
+                <ul>
+                     <li>professional environment</li>
+                    <li>university environment</li>
+                    <li>school environment</li>
+                </ul>
+                <br>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="row">
+        <!--
+    Video Interview button
+    -->
+        <div class="column_home" id="left-col" align="center">
+            <form action="/index" method="post" align="center">
+                <input type="submit" name="video" value="Local Image" align="center">
+            </form>
+        </div>
+
+        <!--
+     Audio Interview button
+     -->
+        <div class="column_home" id="left-col" align="center">
+            <form action="/base" method="post" align="center">
+                <input type="submit" name="audio_index" value="Webcam Image" align="center">
+            </form>
+        </div>
+
+        <!--
+     Text Interview button
+     -->
+        <div class="column_home" id="left-col" align="center">
+            <form action="/streaming" method="post" align="center">
+                <input type="submit" name="text" value="Webcam Streaming" align="center">
+            </form>
+        </div>
+    </div>
+
+    <br>
+    <br>
+    <br>
+
+
+    <br>
+    <br>
+    
+
+</body>
+
+</html>
+{% endblock %}
